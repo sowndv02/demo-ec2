@@ -1,0 +1,15 @@
+bin/
+obj/
+.vs/
+publish/
+*.user
+*.suo
+.idea/
+
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*.pem

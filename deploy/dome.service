@@ -1,0 +1,16 @@
+[Unit]
+Description=Dome ASP.NET Core 10 demo
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/dome
+ExecStart=/usr/bin/dotnet /opt/dome/Dome.dll
+Restart=always
+RestartSec=5
+User=ec2-user
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=ASPNETCORE_URLS=http://0.0.0.0:8080
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
