@@ -109,9 +109,8 @@ resource "aws_key_pair" "dome" {
 }
 
 resource "local_sensitive_file" "private_key" {
-  filename        = "${path.module}/${var.name}.pem"
-  content         = tls_private_key.dome.private_key_pem
-  file_permission = "0400"
+  filename = "${path.module}/${var.name}.pem"
+  content  = tls_private_key.dome.private_key_pem
 }
 
 resource "aws_instance" "dome" {
