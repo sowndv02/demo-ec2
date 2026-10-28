@@ -27,3 +27,9 @@ variable "app_cidr" {
   type        = string
   default     = "0.0.0.0/0"
 }
+
+variable "repo_url" {
+  description = "Repo Git public. User-data clone repo này rồi chạy deploy/docker-up.sh."
+  type        = string
+  default     = "https://github.com/sowndv02/demo-ec2.git"
+}

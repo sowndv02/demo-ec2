@@ -121,8 +121,10 @@ resource "aws_instance" "dome" {
   vpc_security_group_ids      = [aws_security_group.dome.id]
   key_name                    = aws_key_pair.dome.key_name
   associate_public_ip_address = true
-  user_data                   = file("${path.module}/user-data.sh")
-  user_data_replace_on_change = false
+  user_data = templatefile("${path.module}/user-data.sh", {
+    repo_url = var.repo_url
+  })
+  user_data_replace_on_change = true
 
   metadata_options {
     http_endpoint = "enabled"
