@@ -26,5 +26,10 @@ fi
 
 sudo docker build -t dome "$ROOT"
 sudo docker rm -f dome >/dev/null 2>&1 || true
-sudo docker run -d --name dome --restart unless-stopped -p 8080:8080 dome
+docker_args=(-d --name dome --restart unless-stopped -p 8080:8080)
+if [[ -f /home/ec2-user/db.env ]]; then
+  docker_args+=(--env-file /home/ec2-user/db.env)
+fi
+docker_args+=(dome)
+sudo docker run "${docker_args[@]}"
 sudo docker ps --filter name=dome

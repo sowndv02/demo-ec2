@@ -28,6 +28,12 @@ variable "app_cidr" {
   default     = "0.0.0.0/0"
 }
 
+variable "db_instance_class" {
+  description = "RDS một AZ, nhỏ nhất. db.t4g.micro nằm trong free tier nếu tài khoản còn hạn."
+  type        = string
+  default     = "db.t4g.micro"
+}
+
 variable "repo_url" {
   description = "Repo Git public. User-data clone repo này rồi chạy deploy/docker-up.sh."
   type        = string

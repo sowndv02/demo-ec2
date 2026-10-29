@@ -73,6 +73,11 @@ article strong {
   word-break: break-word;
 }
 
+h2 {
+  margin: 36px 0 0;
+  font-size: 1.15rem;
+}
+
 footer {
   display: flex;
   gap: 16px;
